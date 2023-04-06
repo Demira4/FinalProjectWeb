@@ -22,8 +22,8 @@ public class LoginPage extends AbstractPage {// наследуемся
     private WebElement loginButton;
 
    @Step ("Авторизация пользователя")
-    public MyPostsPage loginIn(String login, String password) throws InterruptedException {// на вход передаем логин и пароль для позитивного теста
-        // метод для регистрации( включает все действия)- для негативных сценариев каждое действие в отдельный метод
+    public MyPostsPage loginIn(String login, String password) throws InterruptedException {// на вход передаем логин и пароль
+        // метод для регистрации( включает все действия)
         usernameField.click();
         usernameField.sendKeys(login);// вбиваем логин
         passwordField.click();
@@ -32,24 +32,8 @@ public class LoginPage extends AbstractPage {// наследуемся
         Thread.sleep(3000);
         return new MyPostsPage(driver);
     }
-    @Step("Заполняем поле Username")
-    public LoginPage inputLogin (String login){
-        usernameField.click();
-        usernameField.sendKeys(login);
-        return this;
-    }
-    @Step("Заполняем поле Password")
-    public LoginPage inputPassword(String password){
-        passwordField.click();
-        passwordField.sendKeys(password);
-        return this;
-    }
-    @Step("Кликаем на кнопку Login")
-    public MyPostsPage clickLogin() throws InterruptedException {
-        loginButton.click();
-//        Thread.sleep(2000);
-        return new MyPostsPage(driver);
-    }
+
+
 
     @Step("Проверяем что остались на той же странице(по url)")
     public void checkUrl(){

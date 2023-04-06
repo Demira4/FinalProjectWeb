@@ -74,6 +74,7 @@ public class MyPostsPage extends AbstractPage {
     @Step("Проверка - после авторизации перешли на страницу постов (по url)")
     public void checkChangeUrl() throws InterruptedException {
         ExpectedConditions.visibilityOf(homeHeader);
+        ExpectedConditions.visibilityOf(blockInHerders);
         Assertions.assertFalse(driver.getCurrentUrl().contains("login"));
     }
 
